@@ -61,8 +61,8 @@ class SendNotifications extends Command
     private function getAppointments2hours($now){
         return Appointment::where('status','Confirmada')
         ->where('scheduled_date', $now->toDateString())
-        ->where('scheduled_time', '>=', $now->copy()->addMinutes(120)->toTimeString())
-        ->where('scheduled_time', '<', $now->copy()->addMinutes(125)->toTimeString())
+        ->where('scheduled_time', '>=', $now->copy()->addMinutes(117)->toTimeString())
+        ->where('scheduled_time', '<', $now->copy()->addMinutes(122)->toTimeString())
         ->get();
     }
 

@@ -19,9 +19,7 @@ function send_notification_FCM($title, $body, array $users = [], array $data = [
         ->setSound('default');
 
     $dataBuilder = new PayloadDataBuilder();
-    if ($data != []) {
-        $dataBuilder->addData($data); //['a_data' => 'my_data']
-    }
+    $dataBuilder->addData($data); //['a_data' => 'my_data']
 
     $option = $optionBuilder->build();
     $notification = $notificationBuilder->build();

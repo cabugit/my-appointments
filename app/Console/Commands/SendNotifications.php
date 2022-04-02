@@ -42,14 +42,14 @@ class SendNotifications extends Command
         // Fecha y Hora actuales
         $now = Carbon::now(); // 2022-04-01 14:00:00
 
-        $this->info('Buscando citas médicas confirmadas en las proximas 2 horas.');
+        $this->info($now.' - Buscando citas médicas confirmadas en las proximas 2 horas.');
         $appointments = $this->getAppointments2hours($now);
         foreach($appointments as $appointment){
             $this->sendNotificationFCM($appointment);
             $this->info('Mensaje FCM enviado 2h antes al paciente (id): '.$appointment->patient_id);
         }
 
-        $this->info('Buscando citas médicas confirmadas en las proximas 24 horas.');
+        $this->info($now.' - Buscando citas médicas confirmadas en las proximas 24 horas.');
         $appointments = $this->getAppointments24hours($now);
         foreach($appointments as $appointment){
             $this->sendNotificationFCM($appointment);

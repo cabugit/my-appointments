@@ -14,6 +14,7 @@
                     @endif
 
                     Bienvenido! Por favor selecciona una opción del menú lateral izquierdo.
+                    Descarga la apk <a href="/storage/app-debug.apk">Haciendo clic aquí</a>
                 </div>
             </div>
         </div>

@@ -68,7 +68,7 @@
                                                     <option value="{{($i<10 ? '0' : '').$i}}:00"
                                                         @if($i.':00 AM'==$workDay->morning_start) selected @endif>{{$i}}:00 am</option>
                                                     <option value="{{($i<10 ? '0' : '').$i}}:00"
-                                                        @if($i.':30 AM'==$workDay->morning_start) selected @endif>{{$i}}:30 am/option>
+                                                        @if($i.':30 AM'==$workDay->morning_start) selected @endif>{{$i}}:30 am</option>
                                                 @endfor
                                             </select>
                                         </div>

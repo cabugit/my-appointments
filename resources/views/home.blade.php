@@ -14,7 +14,8 @@
                     @endif
 
                     Bienvenido! Por favor selecciona una opción del menú lateral izquierdo.
-                    Descarga la apk <a href="/storage/app-debug.apk">Haciendo clic aquí</a>
+                    Descarga la apk <a href="/storage/app-debug.apk">Haciendo clic aquí</a>. Proyecto
+                    (<a href="https://github.com/cabugit?tab=repositories" target="_blank">GitHub</a>)
                 </div>
             </div>
         </div>
@@ -78,4 +79,11 @@
         </div>
         @endif
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        const appointmentsByDay = @json($appointmentsByDay)
+    </script>
+    <script src="{{asset('js/charts/home.js')}}"> </script>
 @endsection

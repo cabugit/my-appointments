@@ -43,7 +43,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     // Patients
-    Route::resource('patients', App\Http\Controllers\Admin\PatientController::class);
+    Route::resource('/patients', App\Http\Controllers\Admin\PatientController::class);
 });
 
 Route::middleware(['auth', 'doctor'])->group(function () {

@@ -23,7 +23,7 @@ class PatientController extends Controller
         //$patients = User::Where('role', 'patient')->get();
         // Usando Scopes definidos en el modelo USER
         //$patients = User::patients()->get();
-        if($role == 'Admin')
+        if($role == 'admin')
             $patients = User::patients()->paginate(5); // Paginando
             else
             {

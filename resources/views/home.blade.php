@@ -14,8 +14,10 @@
                     @endif
 
                     Bienvenido! Por favor selecciona una opción del menú lateral izquierdo.
-                    Descarga la apk <a href="/storage/app-debug.apk">Haciendo clic aquí</a>. Proyecto
-                    (<a href="https://github.com/cabugit?tab=repositories" target="_blank">GitHub</a>)
+                    @if(Auth()->User()->role == 'admin')
+                        Descarga la apk <a href="/storage/app-debug.apk">Haciendo clic aquí</a>. Proyecto
+                        (<a href="https://github.com/cabugit?tab=repositories" target="_blank">GitHub</a>)
+                    @endif
                 </div>
             </div>
         </div>

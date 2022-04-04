@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function show(Request $request){
-        return Auth()->User();
+    public function edit(){
+        $user_id = Auth()->id();
+        $user = User::find($user_id);
+        return view('profile', compact('user'));
     }
 
     public function update(Request $request){
@@ -19,5 +20,7 @@ class UserController extends Controller
         $user->phone    = $request->phone;
         $user->address  = $request->address;
         $user->save();
+        $notification = 'Los datos han sido actualizados satisfactoriamente.';
+        return back()->with(compact('notification'));
     }
 }

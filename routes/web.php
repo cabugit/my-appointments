@@ -44,6 +44,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     // Patients
     Route::resource('/patients', App\Http\Controllers\Admin\PatientController::class);
+    // Profile
+    Route::get('/profile', 'App\Http\Controllers\UserController@edit');
+    Route::post('/profile', 'App\Http\Controllers\UserController@update');
 });
 
 Route::middleware(['auth', 'doctor'])->group(function () {
@@ -53,8 +56,10 @@ Route::middleware(['auth', 'doctor'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/appointments/create', [App\Http\Controllers\AppointmentController::class, 'create']);
-    Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store']);
+    Route::middleware(['phone'])->group(function () {
+        Route::get('/appointments/create', [App\Http\Controllers\AppointmentController::class, 'create']);
+        Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store']);
+    });
     Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index']);
 
     Route::get('/appointments/{appointment}', [App\Http\Controllers\AppointmentController::class, 'show']);

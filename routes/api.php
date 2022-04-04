@@ -13,6 +13,8 @@ Route::get('/schedule/hours', [App\Http\Controllers\Api\ScheduleController::clas
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', 'App\Http\Controllers\Api\UserController@show');
+    Route::post('/user', 'App\Http\Controllers\Api\UserController@update');
+
     Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
 
     // Appointments

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,7 +13,8 @@ class UserController extends Controller
     }
 
     public function update(Request $request){
-        $user = Auth()->User()->patient;
+        $user_id = Auth()->id();
+            $user = User::find($user_id);
         $user->name     = $request->name;
         $user->phone    = $request->phone;
         $user->address  = $request->address;
